@@ -1,17 +1,11 @@
-# Federe Öğrenme ile Endüstriyel IoT Verisi Analizi
+# Veri Fabrikada Kalsın, Yapay Zekâ Öğrensin
 
-Bu repository, Bilişim Yıldızları başvurusu için hazırlanmış statik GitHub Pages proje sitesidir.
+Bu repository, Süleyman Burak Altınışık’ın “Federe Öğrenme Kullanılarak Nesnelerin İnterneti (IoT) Verileri Analizi” başlıklı yüksek lisans tezini akademik olmayan okuyucular için sadeleştiren GitHub Pages sitesidir.
 
-## Yayına alma
+## Amaç
 
-1. Bu klasördeki dosyaları repository kök dizinine yükleyin.
-2. GitHub > Settings > Pages bölümüne gidin.
-3. Source: Deploy from a branch, Branch: main, Folder: /root seçin.
-4. Save butonuna basın.
+Site, üretim hatlarındaki IoT/OPC verilerinin merkezi sunucuya taşınmadan nasıl analiz edilebileceğini; federe öğrenme, veri gizliliği, kestirimci bakım ve kalite kontrol kavramları üzerinden anlaşılır biçimde açıklar.
 
-## İçerik
+## Yayınlama
 
-- `index.html`: Proje tanıtım sayfası
-- `assets/tez.pdf`: Tez tam metni
-- `_config.yml`: GitHub Pages başlık ayarları
-- `.nojekyll`: GitHub Pages üzerinde Jekyll işlemeyi devre dışı bırakır
+GitHub Pages için `index.html`, `_config.yml`, `.nojekyll` ve `assets/tez.pdf` dosyalarının repository kök dizininde bulunması yeterlidir.
