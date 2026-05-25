@@ -1,30 +1,26 @@
-# Tez Tanıtım Sitesi — GitHub Pages
+# Federe Öğrenme Kullanılarak IoT Verileri Analizi
 
-Bu klasör, **"Federe Öğrenme Kullanılarak Nesnelerin İnterneti (IoT) Verileri Analizi"** başlıklı tez çalışmasını akademik olmayan okurlara anlatmak için hazırlanmış statik bir GitHub Pages sitesidir.
+Bu repository, Süleyman Burak Altınışık tarafından hazırlanan yüksek lisans tezinin akademik olmayan okuyucular için sadeleştirilmiş web sitesidir. Site, GitHub Pages üzerinde yayınlanmak üzere tek sayfalık statik HTML yapısıyla hazırlanmıştır.
 
-## Yayına alma
+## Yayınlama
 
-1. GitHub'da yeni bir repo oluşturun. Önerilen ad: `kullanici-adiniz.github.io` veya `tez-tanitim`.
-2. Bu klasördeki tüm dosyaları repoya yükleyin.
-3. Repository > Settings > Pages bölümüne gidin.
-4. Source: **Deploy from a branch** seçin.
-5. Branch: `main`, folder: `/root` seçin ve kaydedin.
-6. Birkaç dakika sonra site yayınlanır.
+1. Bu klasördeki dosyaları repository kök dizinine yükleyin.
+2. GitHub'da **Settings > Pages** menüsüne girin.
+3. **Source** alanında **Deploy from a branch** seçin.
+4. Branch olarak `main`, klasör olarak `/root` seçin.
+5. **Save** butonuna basın.
 
-## Dosya yapısı
+## İçerik
 
-```text
-.
-├── index.html
-├── README.md
-├── _config.yml
-├── .nojekyll
-└── assets/
-    └── tez.pdf
-```
+- Tez çalışmasının sade özeti
+- Proje kimliği
+- Dijital dönüşüm katkısı
+- Federe öğrenme iş akışı
+- Sanayiye katkı ve özgün değer
+- Sonuç metrikleri
+- SSS bölümü
+- Tez PDF bağlantısı
 
-## Düzenlenecek alanlar
+## Not
 
-- `index.html` içindeki başlık, metrikler ve iletişim bilgileri.
-- `assets/tez.pdf` dosyasını yayında göstermek istemiyorsanız silin ve `index.html` içindeki `Tez PDF` bağlantısını kaldırın.
-- Kendi alan adınızı kullanacaksanız GitHub Pages ayarlarından custom domain tanımlayın.
+`assets/tez.pdf` dosyası sitedeki **Tez PDF** butonundan erişilebilir. PDF'in herkese açık olmasını istemiyorsanız bu dosyayı kaldırın ve `index.html` içindeki ilgili bağlantıyı silin.
