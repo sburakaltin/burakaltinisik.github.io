@@ -4,7 +4,11 @@ Bu repository, Süleyman Burak Altınışık’ın “Federe Öğrenme Kullanıl
 
 ## Amaç
 
-Site, üretim hatlarındaki IoT/OPC verilerinin merkezi sunucuya taşınmadan nasıl analiz edilebileceğini; federe öğrenme, veri gizliliği, kestirimci bakım ve kalite kontrol kavramları üzerinden anlaşılır biçimde açıklar.
+Site, kablo üretim hattından alınan IoT/OPC ve MSSQL tabanlı sensör verilerinin merkezi sunucuya taşınmadan nasıl analiz edilebileceğini; federe öğrenme, veri gizliliği, kestirimci bakım ve kalite kontrol kavramları üzerinden anlaşılır biçimde açıklar.
+
+## Gerçek üretim örneği
+
+Sitede sıcaklık, basınç, çekme kuvveti, hat hızı, sıcak çap/reel, ürün/iş emri bağlamı, operasyon/vardiya referansı, ölçüm zamanı ve sensör sinyalleri gibi üretim verilerinin nasıl işlendiği sade bir senaryo ile anlatılmıştır.
 
 ## Yayınlama
 
