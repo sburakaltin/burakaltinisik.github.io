@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Federe öğrenme ve endüstriyel IoT verileri analizini akademik olmayan insanlara anlatan kişisel tez tanıtım sayfası." />
+  <meta name="description" content="Kablo üretim hattından alınan endüstriyel IoT verileriyle federe öğrenme çalışmasını akademik olmayan insanlara anlatan kişisel tez tanıtım sayfası." />
   <meta name="theme-color" content="#ffffff" />
   <title>Veri Fabrikada Kalsın, Yapay Zekâ Öğrensin | Süleyman Burak Altınışık</title>
   <style>
@@ -149,6 +149,60 @@
 
 
 
+
+    .photoGrid{
+      display:grid;
+      grid-template-columns:1fr 1fr 1fr;
+      gap:18px;
+      margin:28px 0 42px;
+    }
+    .photoCard{
+      margin:0;
+      border-top:1px solid #111;
+      padding-top:14px;
+    }
+    .photoCard img{
+      display:block;
+      width:100%;
+      aspect-ratio:3/4;
+      object-fit:cover;
+      filter:grayscale(.08);
+      background:#eee;
+    }
+    .photoCard figcaption{
+      color:var(--muted);
+      font-size:14px;
+      margin-top:10px;
+    }
+    .problemGrid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:24px;
+      margin-top:34px;
+    }
+    .problemCard{
+      border-top:1px solid #111;
+      padding-top:18px;
+    }
+    .problemCard h3{
+      font-size:21px;
+      line-height:1.18;
+      margin:0 0 8px;
+      font-weight:720;
+      letter-spacing:-.02em;
+    }
+    .problemCard p{
+      color:var(--muted);
+      margin:0;
+    }
+    .realNote{
+      border-top:1px solid #111;
+      padding-top:20px;
+      margin-top:34px;
+      max-width:840px;
+      color:var(--muted);
+    }
+
     .fieldcase{display:grid;grid-template-columns:.92fr 1.08fr;gap:44px;align-items:start}
     .dataGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
     .dataCard{border:0;border-top:1px solid #111;padding:18px 0 0;background:transparent}
@@ -193,7 +247,7 @@
 
     @media(max-width:930px){
       .heroGrid,.award,.grid2,.cta,.fieldcase{grid-template-columns:1fr}
-      .grid3,.metrics,.dataGrid{grid-template-columns:repeat(2,1fr)}
+      .grid3,.metrics,.dataGrid,.photoGrid,.problemGrid{grid-template-columns:repeat(2,1fr)}
       .pipeline{grid-template-columns:repeat(2,1fr)}
       .links{display:none}
       .panel{border-left:0;border-top:1px solid var(--line);padding:20px 0 0}
@@ -205,7 +259,7 @@
     }
     @media(max-width:560px){
       .wrap{width:min(var(--max),calc(100% - 28px))}
-      .grid3,.metrics,.dataGrid,.pipeline{grid-template-columns:1fr}
+      .grid3,.metrics,.dataGrid,.pipeline,.photoGrid,.problemGrid{grid-template-columns:1fr}
       .hero{padding-top:52px}
       .fact,.dataLine{grid-template-columns:1fr;gap:4px}
       .actions{gap:14px}
@@ -222,9 +276,37 @@
 
 
 
-    <section id="saha"><div class="wrap"><div class="head"><div class="kicker">Gerçek üretim örneği</div><h2>Kablo üretim hattında hangi veriyi aldım, neye dönüştürdüm?</h2><p>Bu çalışmanın sahaya dokunan kısmı, bir kablo üretim hattındaki OPC/MSSQL verisinin yapay zekâ için anlamlı hale getirilmesiydi. Yani sadece “federe öğrenme iyidir” demedim; üretim hattından gelen gerçekçi zaman serisi verisini temizleyip etiketledim, model eğittim ve bu modeli veriyi dışarı taşımadan güncellenebilir hale getirdim.</p></div><div class="fieldcase"><div class="factoryStory"><p><strong>Basit anlatımla:</strong> kablo hattı çalışırken makine sürekli iz bırakır. Hat ne hızda ilerliyor, sıcak çap/reel değeri nasıl değişiyor, basınç ve çekme kuvveti normal aralıkta mı, hangi ürün veya iş emri için hangi vardiyada ölçüm alınmış? Bu izleri bir doktorun nabız, tansiyon ve ateşi birlikte okuması gibi birlikte değerlendirdim.</p><p>Veri tabanındaki her satırı, üretim hattının o saniyedeki “fotoğrafı” gibi düşündüm. Bu fotoğrafta ürün veya iş emri kodu, üretimin hangi vardiya/operasyon bağlamında gerçekleştiğini gösteren referans bilgi, ölçüm zamanı ve hattın farklı noktalarından gelen sensör değerleri birlikte yer aldı. Böylece model, yalnızca tek bir sıcaklık değerine değil; ürün, zaman, vardiya ve makine davranışını aynı anda anlatan daha geniş bir üretim bağlamına bakabildi.</p><p>Modelin görevi, bu sinyallerden hattın normal çalışma ritmini öğrenmekti. Her sensörün ortalama değeri etrafında ±%5 tolerans aralığı kullanılarak kayıtlar “iyi” veya “kötü” şeklinde etiketlendi. Böylece sistem, kalite sapması veya bakım ihtimali doğurabilecek durumları erken işaretleyebilecek bir sınıflandırma problemine dönüştürüldü.</p></div><div><div class="dataGrid"><article class="dataCard"><h3>1. Ürün ve operasyon bağlamı</h3><p>Her ölçümün hangi ürün/iş emriyle ve hangi üretim koşuluyla ilişkili olduğu izlendi. Bu bilgi, modelin farklı ürünlerde oluşan davranış farklarını ayırmasına yardım etti.</p></article><article class="dataCard"><h3>2. Ölçüm zamanı</h3><p>Her kayıt zaman damgasıyla tutulduğu için veriler dakika/saniye düzeyinde sıralandı; gün içi değişim, vardiya etkisi ve gece üretimindeki sapmalar incelendi.</p></article><article class="dataCard"><h3>3. Sensör ölçümleri</h3><p>Hattın farklı noktalarından gelen 37 sensör sinyali; sıcaklık, basınç, çekme kuvveti, hat hızı ve sıcak çap/reel gibi üretim davranışlarını okumak için işlendi.</p></article><article class="dataCard"><h3>4. Karar etiketi</h3><p>±%5 tolerans yaklaşımıyla hattın normal veya sapmalı çalıştığı anlar sınıflandırılabilir hale getirildi.</p></article></div><div class="dataTable" aria-label="Kablo hattı veri örnekleri"><div class="dataLine"><div><b>Veri tipi</b></div><div><b>Ne anlatıyor?</b></div><div><b>Kullanım</b></div></div><div class="dataLine"><div>Ürün / iş emri kodu</div><div>Ölçümün hangi üretim işi veya ürün grubu için alındığını gösterir.</div><div>Bağlam</div></div><div class="dataLine"><div>Operasyon / vardiya bağlamı</div><div>Üretim koşullarını yorumlamak için kullanılan referans bilgidir; sitede kişisel veri paylaşılmaz.</div><div>Bağlam</div></div><div class="dataLine"><div>Ölçüm zamanı</div><div>Verinin hangi gün, saat ve üretim anında oluştuğunu gösterir.</div><div>Zaman analizi</div></div><div class="dataLine"><div>Sıcaklık</div><div>Üretim sırasında ısıl dengenin bozulup bozulmadığını gösterir.</div><div>Kalite</div></div><div class="dataLine"><div>Basınç</div><div>Proses basıncındaki dalgalanmalar üretim kararlılığı hakkında işaret verir.</div><div>Kalite / Bakım</div></div><div class="dataLine"><div>Çekme kuvveti</div><div>Kablonun hat üzerinde maruz kaldığı mekanik zorlanmayı gösterir.</div><div>Bakım</div></div><div class="dataLine"><div>Hat hızı</div><div>Üretim ritmini ve diğer proses değişkenleriyle ilişkiyi okumayı sağlar.</div><div>Verimlilik</div></div><div class="dataLine"><div>Sıcak çap / reel</div><div>Ürün geometrisi ve proses kararlılığı için kritik bir izleme sinyalidir.</div><div>Kalite</div></div></div></div></div><div class="pipeline"><div class="pipeStep"><b>Üretim verisi</b><span>OPC/MSSQL altyapısından makinenin anlık çalışma kayıtları alındı.</span></div><div class="pipeStep"><b>Temizleme</b><span>Eksik veri, aykırı değer ve zaman damgası problemleri düzenlendi.</span></div><div class="pipeStep"><b>Etiketleme</b><span>±%5 toleransla iyi/kötü üretim anları ayrıldı.</span></div><div class="pipeStep"><b>Yerel model</b><span>Her istemci kendi verisiyle modeli eğitti.</span></div><div class="pipeStep"><b>Federe model</b><span>FedAvg ile ortak model üretildi; ham veri yerinde kaldı.</span></div></div></div></section>
+    <section id="saha"><div class="wrap"><div class="head"><div class="kicker">Gerçek üretim örneği</div><h2>Kablo üretim hattında hangi veriyi aldım, neye dönüştürdüm?</h2><p>Bu çalışma masa başında kurulmuş soyut bir yapay zekâ denemesi değildi. Fotoğraflarda görülen kablo üretim hattı gibi gerçek bir endüstriyel ortamdan gelen üretim verisini ele aldım: makinenin çalışma anını, sensör sinyallerini, ürün/iş emri bağlamını ve ölçüm zamanını birlikte okuyarak hattın normal davranışını yapay zekâya öğretmeye çalıştım.</p></div>
 
-    <section id="yaklasim"><div class="wrap"><div class="head"><div class="kicker">Benim yaklaşımım</div><h2>Tezin özü, sanayide çok tanıdık bir ikileme dayanıyor.</h2><p>Fabrikalar veriden öğrenmek istiyor; fakat üretim verisini dışarı taşımak istemiyor. Bu çalışmada bu ikileme, “veriyi değil, öğrenilen modeli paylaşalım” fikriyle yaklaştım.</p></div><div class="award"><div class="awardBox"><h3>Sahadaki problem</h3><ul class="check"><li>Üretim hattındaki sensör verileri şirket için hassas ve stratejik bilgidir.</li><li>Merkezi veri toplama, ağ trafiğini ve depolama ihtiyacını artırır.</li><li>Farklı makineler ve farklı hatlar, tek tip bir modele kolayca uymaz.</li><li>Arıza ve kalite sorunları geç fark edildiğinde maliyet büyür.</li></ul></div><div class="awardBox"><h3>Bu çalışmada önerilen yol</h3><ul class="check"><li>Veri, üretildiği yerde kalır; model yerel olarak eğitilir.</li><li>Merkezi sunucu ham veriyi değil, model güncellemelerini birleştirir.</li><li>Gizlilik için diferansiyel gizlilik ve güvenli toplama katmanları kullanılır.</li><li>Hedef, bakım ve kalite kararlarına daha güvenli bir yapay zekâ altyapısı kazandırmaktır.</li></ul></div></div></div></section>
+      <div class="photoGrid" aria-label="Kablo üretim hattı fotoğrafları">
+        <figure class="photoCard">
+          <img src="assets/img/kablo-hatti-ekstruder-1.jpg" alt="Kablo üretim hattında ekstrüder ve kontrol ekipmanları" loading="lazy">
+          <figcaption>Ekstrüder hattı, malzeme besleme ünitesi, kontrol paneli ve üretim çevresindeki sensör/kontrol altyapısı.</figcaption>
+        </figure>
+        <figure class="photoCard">
+          <img src="assets/img/kablo-hatti-ekstruder-2.jpg" alt="Kablo üretim hattının geniş görünümü" loading="lazy">
+          <figcaption>Üretim hattının geniş görünümü: farklı noktalardan gelen veriler aynı sürecin farklı parçalarını anlatıyor.</figcaption>
+        </figure>
+        <figure class="photoCard">
+          <img src="assets/img/kablo-hatti-kontrol-paneli.jpg" alt="Kablo üretim hattında operatör paneli ve sarım bölümü" loading="lazy">
+          <figcaption>Operatör ekranı, sarım/hat bölgesi ve ölçüm noktaları: verinin üretim kararına dönüştüğü saha katmanı.</figcaption>
+        </figure>
+      </div>
+
+      <div class="fieldcase"><div class="factoryStory"><p><strong>Basit anlatımla:</strong> kablo hattı çalışırken makine sürekli iz bırakır. Hat ne hızda ilerliyor, sıcak çap/reel değeri nasıl değişiyor, basınç ve çekme kuvveti normal aralıkta mı, hangi ürün veya iş emri için hangi vardiyada ölçüm alınmış? Bu izleri bir doktorun nabız, tansiyon ve ateşi birlikte okuması gibi birlikte değerlendirdim.</p><p>Veri tabanındaki her satırı, üretim hattının o saniyedeki “fotoğrafı” gibi düşündüm. Bu fotoğrafta ürün veya iş emri kodu, üretimin hangi vardiya/operasyon bağlamında gerçekleştiğini gösteren referans bilgi, ölçüm zamanı ve hattın farklı noktalarından gelen sensör değerleri birlikte yer aldı. Böylece model, yalnızca tek bir sıcaklık değerine değil; ürün, zaman, vardiya ve makine davranışını aynı anda anlatan daha geniş bir üretim bağlamına bakabildi.</p><p>Modelin görevi, bu sinyallerden hattın normal çalışma ritmini öğrenmekti. Her sensörün ortalama değeri etrafında ±%5 tolerans aralığı kullanılarak kayıtlar “iyi” veya “kötü” şeklinde etiketlendi. Böylece sistem, kalite sapması veya bakım ihtimali doğurabilecek durumları erken işaretleyebilecek bir sınıflandırma problemine dönüştürüldü.</p></div><div><div class="dataGrid"><article class="dataCard"><h3>1. Ürün ve operasyon bağlamı</h3><p>Her ölçümün hangi ürün/iş emriyle ve hangi üretim koşuluyla ilişkili olduğu izlendi. Bu bilgi, modelin farklı ürünlerde oluşan davranış farklarını ayırmasına yardım etti.</p></article><article class="dataCard"><h3>2. Ölçüm zamanı</h3><p>Her kayıt zaman damgasıyla tutulduğu için veriler dakika/saniye düzeyinde sıralandı; gün içi değişim, vardiya etkisi ve gece üretimindeki sapmalar incelendi.</p></article><article class="dataCard"><h3>3. Sensör ölçümleri</h3><p>Hattın farklı noktalarından gelen 37 sensör sinyali; sıcaklık, basınç, çekme kuvveti, hat hızı ve sıcak çap/reel gibi üretim davranışlarını okumak için işlendi.</p></article><article class="dataCard"><h3>4. Karar etiketi</h3><p>±%5 tolerans yaklaşımıyla hattın normal veya sapmalı çalıştığı anlar sınıflandırılabilir hale getirildi.</p></article></div><div class="dataTable" aria-label="Kablo hattı veri örnekleri"><div class="dataLine"><div><b>Veri tipi</b></div><div><b>Ne anlatıyor?</b></div><div><b>Kullanım</b></div></div><div class="dataLine"><div>Ürün / iş emri kodu</div><div>Ölçümün hangi üretim işi veya ürün grubu için alındığını gösterir.</div><div>Bağlam</div></div><div class="dataLine"><div>Operasyon / vardiya bağlamı</div><div>Üretim koşullarını yorumlamak için kullanılan referans bilgidir; kişisel veri paylaşımı yapılmaz.</div><div>Bağlam</div></div><div class="dataLine"><div>Ölçüm zamanı</div><div>Verinin hangi gün, saat ve üretim anında oluştuğunu gösterir.</div><div>Zaman serisi</div></div><div class="dataLine"><div>Sensör ölçümleri</div><div>Sıcaklık, basınç, çekme kuvveti, hat hızı ve sıcak çap/reel gibi üretim davranışlarını anlatır.</div><div>Model girdisi</div></div></div></div></div>
+
+      <div class="problemGrid" aria-label="Çözülen gerçek hayat problemleri">
+        <article class="problemCard"><h3>1. Kalite sapmasını geç fark etme problemi</h3><p>Kablo üretiminde küçük bir sıcaklık, hız veya çekme kuvveti sapması ürün kalitesini etkileyebilir. Çalışmada sensör değerleri ±%5 tolerans mantığıyla izlenerek hattın kararlı mı sapmalı mı çalıştığı sınıflandırılabilir hale getirildi.</p></article>
+        <article class="problemCard"><h3>2. Plansız duruş ve bakım maliyeti problemi</h3><p>Makine davranışındaki anormallikler erken okunmadığında arıza büyüyebilir ve hat durabilir. Model, bakım ihtimali doğurabilecek olağan dışı üretim davranışlarını daha erken işaretlemeye yönelik bir karar destek altyapısı olarak kurgulandı.</p></article>
+        <article class="problemCard"><h3>3. Hassas üretim verisini merkeze taşıma problemi</h3><p>Üretim reçetesi, hat hızı, sıcaklık ve kalite davranışı firma için stratejik bilgidir. Federe öğrenme yaklaşımıyla ham veri üretim hattında bırakıldı; merkeze yalnızca model güncellemelerinin gitmesi hedeflendi.</p></article>
+        <article class="problemCard"><h3>4. Farklı makinelerden gelen dağınık veri problemi</h3><p>Her ekstrüder makinesi aynı sayıda ölçüm alanı üretmeyebilir. Bu nedenle veriler temizlendi, ölçeklendi, eksikler tamamlandı ve makineler arası öğrenmeyi mümkün kılmak için ortak yapıya dönüştürüldü.</p></article>
+      </div>
+
+      <p class="realNote">Bu sayfada teknik kolon adlarını özellikle geri planda bıraktım. Çünkü ödül jürisinin görmesi gereken şey veritabanı şeması değil; üretim hattından alınan ham sinyallerin kalite, bakım, veri gizliliği ve operasyonel verimlilik için anlaşılır bir karar destek problemine dönüştürülmesidir.</p>
+
+      <div class="pipeline"><div class="pipeStep"><b>Topla</b><span>OPC/MSSQL üzerinden üretim verisi alınır.</span></div><div class="pipeStep"><b>Temizle</b><span>Eksik kayıt, aykırı değer ve zaman uyumsuzluğu düzeltilir.</span></div><div class="pipeStep"><b>Etiketle</b><span>±%5 toleransla iyi/kötü üretim davranışı ayrılır.</span></div><div class="pipeStep"><b>Öğren</b><span>Yerel model, hattın normal ritmini öğrenir.</span></div><div class="pipeStep"><b>Paylaşma</b><span>Ham veri değil, yalnızca model güncellemesi paylaşılır.</span></div></div></div></section>
+
+    <section id="yaklasim"><div class="wrap"><div class="head"><div class="kicker">Benim yaklaşımım</div><h2>Tezin özü, sanayide çok tanıdık bir ikileme dayanıyor.</h2><p>Fabrikalar veriden öğrenmek istiyor; fakat üretim verisini dışarı taşımak istemiyor. Bu çalışmada bu ikileme, “veriyi değil, öğrenilen modeli paylaşalım” fikriyle yaklaştım.</p></div><div class="award"><div class="awardBox"><h3>Sahada karşılaştığım problem</h3><ul class="check"><li>Ekstrüder hattından gelen sıcaklık, basınç, çekme kuvveti, hat hızı ve çap davranışı üretim kalitesini doğrudan etkiler.</li><li>Bu veriler yüksek hacimli ve zaman bağımlıdır; merkezde toplamak hem ağ yükü hem de veri güvenliği riski oluşturur.</li><li>Farklı makineler aynı veri yapısına sahip olmadığı için doğrudan ortak model eğitmek zordur.</li><li>Sapmalar geç fark edildiğinde hatalı üretim, plansız duruş ve bakım maliyeti büyür.</li></ul></div><div class="awardBox"><h3>Bu çalışmada uyguladığım yol</h3><ul class="check"><li>Üretim verisi temizlendi, zaman damgaları hizalandı, aykırı değerler ayrıldı ve sensörler ortak modele uygun hale getirildi.</li><li>Kayıtlar ±%5 tolerans yaklaşımıyla normal/sapmalı üretim davranışı olarak sınıflandırıldı.</li><li>Her istemci kendi verisiyle yerel modeli eğitti; merkezi sunucu ham veriyi değil, model güncellemelerini birleştirdi.</li><li>Gizlilik için diferansiyel gizlilik ve güvenli toplama; verimlilik için sıkıştırılmış/seyrek güncelleme yaklaşımı kullanıldı.</li></ul></div></div></div></section>
 
     <section id="akis"><div class="wrap"><div class="head"><div class="kicker">Teknik olmayan anlatım</div><h2>Nasıl çalışır?</h2><p>Bir fabrikanın farklı üretim hatları ortak akla katkı verir; ama kendi ham verisini dışarı çıkarmaz.</p></div><div class="flow"><div class="step"><div class="num">1</div><strong>OPC sensörleri</strong><span>Kablo hattından sıcaklık, basınç, çekme kuvveti, hat hızı, sıcak çap/reel ve zaman damgalı üretim parametreleri toplanır.</span></div><div class="step"><div class="num">2</div><strong>Yerel eğitim</strong><span>Her üretim hattı kendi verisiyle modeli günceller.</span></div><div class="step"><div class="num">3</div><strong>Gizlilik katmanı</strong><span>Diferansiyel gizlilik ve güvenli toplama uygulanır.</span></div><div class="step"><div class="num">4</div><strong>Model birleştirme</strong><span>Sunucu, FedAvg ile model güncellemelerini birleştirir.</span></div><div class="step"><div class="num">5</div><strong>Karar desteği</strong><span>Bakım ihtiyacı ve kalite sapması için erken uyarı üretilir.</span></div></div></div></section>
 

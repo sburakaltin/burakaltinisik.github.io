@@ -13,3 +13,15 @@ Sitede sıcaklık, basınç, çekme kuvveti, hat hızı, sıcak çap/reel, ürü
 ## Yayınlama
 
 GitHub Pages için `index.html`, `_config.yml`, `.nojekyll` ve `assets/tez.pdf` dosyalarının repository kök dizininde bulunması yeterlidir.
+
+
+## Bu sürümdeki ekler
+
+Bu güncellemede gerçek kablo üretim hattı fotoğrafları `assets/img/` klasörüne eklenmiştir. Site içinde bu fotoğraflar, tezdeki gerçek hayat problemini daha görünür kılmak için kullanılır:
+
+- kalite sapmalarının geç fark edilmesi,
+- plansız duruş ve bakım maliyeti,
+- hassas üretim verisinin merkezi sisteme taşınması,
+- farklı ekstrüder makinelerden gelen dağınık sensör yapılarının ortak modele uygun hale getirilmesi.
+
+GitHub Pages için ZIP dosyasını değil, ZIP’in içindeki dosyaları repository kök dizinine yükleyin.
