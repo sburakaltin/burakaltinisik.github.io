@@ -1,27 +1,25 @@
-# Veri Fabrikada Kalsın, Yapay Zekâ Öğrensin
+# GitHub Pages Site Paketi
 
-Bu repository, Süleyman Burak Altınışık’ın “Federe Öğrenme Kullanılarak Nesnelerin İnterneti (IoT) Verileri Analizi” başlıklı yüksek lisans tezini akademik olmayan okuyucular için sadeleştiren GitHub Pages sitesidir.
+Bu klasör, “Federe Öğrenme Kullanılarak Nesnelerin İnterneti (IoT) Verileri Analizi” yüksek lisans tezini TBD İstanbul Bilişim Yıldızları 2026 başvurusu için akademik olmayan ziyaretçilere anlatan statik web sitesidir.
 
-## Amaç
+## Dosyalar
 
-Site, kablo üretim hattından alınan IoT/OPC ve MSSQL tabanlı sensör verilerinin merkezi sunucuya taşınmadan nasıl analiz edilebileceğini; federe öğrenme, veri gizliliği, kestirimci bakım ve kalite kontrol kavramları üzerinden anlaşılır biçimde açıklar.
+- `index.html`: Tek sayfalık site içeriği
+- `style.css`: Responsive arayüz tasarımı
+- `script.js`: Mobil menü ve kaydırma ilerleme çubuğu
+- `assets/img/`: Tezden seçilen görseller
+- `assets/favicon.svg`: Site ikonu
 
-## Gerçek üretim örneği
+## GitHub Pages yayınlama
 
-Sitede sıcaklık, basınç, çekme kuvveti, hat hızı, sıcak çap/reel, ürün/iş emri bağlamı, operasyon/vardiya referansı, ölçüm zamanı ve sensör sinyalleri gibi üretim verilerinin nasıl işlendiği sade bir senaryo ile anlatılmıştır.
+1. Bu klasördeki tüm dosyaları GitHub reposunun kök dizinine yükleyin.
+2. GitHub’da **Settings → Pages** bölümüne girin.
+3. **Source** olarak `Deploy from a branch`, branch olarak `main`, klasör olarak `/root` seçin.
+4. Kaydedin. GitHub Pages birkaç dakika içinde yayına alır.
 
-## Yayınlama
-
-GitHub Pages için `index.html`, `_config.yml`, `.nojekyll` ve `assets/tez.pdf` dosyalarının repository kök dizininde bulunması yeterlidir.
+Dış bağımlılık yoktur; site yalnızca HTML, CSS ve JavaScript ile çalışır.
 
 
-## Bu sürümdeki ekler
+## Tez PDF bağlantısı
 
-Bu güncellemede gerçek kablo üretim hattı fotoğrafları `assets/img/` klasörüne eklenmiştir. Site içinde bu fotoğraflar, tezdeki gerçek hayat problemini daha görünür kılmak için kullanılır:
-
-- kalite sapmalarının geç fark edilmesi,
-- plansız duruş ve bakım maliyeti,
-- hassas üretim verisinin merkezi sisteme taşınması,
-- farklı ekstrüder makinelerden gelen dağınık sensör yapılarının ortak modele uygun hale getirilmesi.
-
-GitHub Pages için ZIP dosyasını değil, ZIP’in içindeki dosyaları repository kök dizinine yükleyin.
+Sitedeki "Tezi PDF olarak indir" bağlantısının çalışması için tez PDF dosyasını `assets/tez.pdf` adıyla ekleyin.

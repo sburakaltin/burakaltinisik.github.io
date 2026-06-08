@@ -3,319 +3,457 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Kablo üretim hattından alınan endüstriyel IoT verileriyle federe öğrenme çalışmasını akademik olmayan insanlara anlatan kişisel tez tanıtım sayfası." />
-  <meta name="theme-color" content="#ffffff" />
-  <title>Veri Fabrikada Kalsın, Yapay Zekâ Öğrensin | Süleyman Burak Altınışık</title>
-  <style>
-    :root{
-      --bg:#ffffff;
-      --text:#111111;
-      --muted:#555555;
-      --line:#d9d9d9;
-      --soft:#f6f6f6;
-      --max:1120px;
-      font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0;
-      color:var(--text);
-      background:#fff;
-      line-height:1.62;
-      text-rendering:optimizeLegibility;
-    }
-    a{text-decoration:none;color:inherit}
-    .wrap{width:min(var(--max),calc(100% - 40px));margin:auto}
-
-    .nav{
-      position:sticky;
-      top:0;
-      z-index:30;
-      background:rgba(255,255,255,.94);
-      backdrop-filter:blur(10px);
-      border-bottom:1px solid var(--line);
-    }
-    .navin{min-height:64px;display:flex;align-items:center;justify-content:space-between;gap:20px}
-    .brand{display:flex;gap:12px;align-items:center;font-weight:720;letter-spacing:-.015em}
-    .logo{
-      width:34px;
-      height:34px;
-      border:1px solid #111;
-      color:#111;
-      display:grid;
-      place-items:center;
-      font-weight:740;
-      font-size:13px;
-      line-height:1;
-    }
-    .links{display:flex;gap:18px;color:var(--muted);font-size:14px}
-    .links a{border-bottom:1px solid transparent}
-    .links a:hover{color:var(--text);border-bottom-color:var(--text)}
-
-    .hero{padding:86px 0 52px;border-bottom:1px solid var(--line)}
-    .heroGrid{display:grid;grid-template-columns:minmax(0,1.18fr) minmax(280px,.82fr);gap:58px;align-items:start}
-    .kicker{color:#666;font-weight:700;text-transform:uppercase;letter-spacing:.12em;font-size:12px}
-    h1{font-size:clamp(38px,6.2vw,70px);line-height:1;letter-spacing:-.055em;margin:16px 0 22px;font-weight:780;max-width:860px}
-    .lead{font-size:clamp(18px,2vw,22px);color:#333;max-width:760px}
-    .actions{display:flex;flex-wrap:wrap;gap:18px;margin-top:30px}
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      border-bottom:1px solid #111;
-      padding:2px 0;
-      font-weight:700;
-      background:transparent;
-    }
-    .btn.primary{background:transparent;color:#111;border-bottom:2px solid #111}
-    .btn:hover{color:#666;border-bottom-color:#666}
-
-    .panel{
-      border:0;
-      border-left:1px solid var(--line);
-      background:transparent;
-      padding:0 0 0 24px;
-    }
-    .badge{
-      display:inline-flex;
-      color:#555;
-      border:0;
-      border-radius:0;
-      padding:0;
-      background:transparent;
-      font-weight:700;
-      font-size:12px;
-      letter-spacing:.08em;
-      text-transform:uppercase;
-    }
-    .fact{display:grid;grid-template-columns:112px 1fr;gap:14px;border-bottom:1px solid var(--line);padding:13px 0}
-    .fact:last-child{border:0}
-    .fact b{color:#666;font-size:12px;text-transform:uppercase;letter-spacing:.08em}
-    .fact span{color:#111}
-
-    section{padding:64px 0;border-bottom:1px solid var(--line)}
-    .head{max-width:790px;margin-bottom:32px}
-    .head h2{font-size:clamp(28px,3.4vw,46px);line-height:1.08;letter-spacing:-.045em;margin:10px 0 14px;font-weight:760}
-    .head p,.muted{color:var(--muted)}
-
-    .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
-    .grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:28px}
-    .card{
-      border:0;
-      border-top:1px solid #111;
-      border-radius:0;
-      background:transparent;
-      padding:20px 0 0;
-    }
-    .card h3{font-size:21px;line-height:1.18;margin:0 0 10px;font-weight:720;letter-spacing:-.02em}
-    .card p{color:var(--muted);margin:0}
-    .icon{display:none}
-
-    .award{display:grid;grid-template-columns:1fr 1fr;gap:52px}
-    .awardBox{border:0;border-top:1px solid #111;border-radius:0;padding:20px 0 0;background:transparent}
-    .awardBox h3{margin:0 0 14px;font-size:22px;font-weight:720;letter-spacing:-.025em}
-    .check{list-style:none;padding:0;margin:0;display:grid;gap:10px}
-    .check li{padding-left:0;position:relative;color:var(--muted);border-bottom:1px solid var(--line);padding-bottom:10px}
-    .check li:last-child{border-bottom:0;padding-bottom:0}
-    .check li:before{content:none}
-
-    .flow{display:grid;grid-template-columns:1fr;gap:0;border-top:1px solid #111}
-    .step{
-      display:grid;
-      grid-template-columns:64px minmax(160px,260px) 1fr;
-      gap:18px;
-      align-items:start;
-      border:0;
-      border-bottom:1px solid var(--line);
-      background:transparent;
-      border-radius:0;
-      padding:18px 0;
-      position:relative;
-    }
-    .step .num{
-      width:auto;
-      height:auto;
-      border-radius:0;
-      background:transparent;
-      color:#111;
-      display:block;
-      font-weight:820;
-      margin:0;
-      font-variant-numeric:tabular-nums;
-    }
-    .step strong{display:block;margin:0;font-size:17px;font-weight:720;letter-spacing:-.015em}
-    .step span{color:var(--muted);font-size:15px}
-
-
-
-
-    .photoGrid{
-      display:grid;
-      grid-template-columns:1fr 1fr 1fr;
-      gap:18px;
-      margin:28px 0 42px;
-    }
-    .photoCard{
-      margin:0;
-      border-top:1px solid #111;
-      padding-top:14px;
-    }
-    .photoCard img{
-      display:block;
-      width:100%;
-      aspect-ratio:3/4;
-      object-fit:cover;
-      filter:grayscale(.08);
-      background:#eee;
-    }
-    .photoCard figcaption{
-      color:var(--muted);
-      font-size:14px;
-      margin-top:10px;
-    }
-    .problemGrid{
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:24px;
-      margin-top:34px;
-    }
-    .problemCard{
-      border-top:1px solid #111;
-      padding-top:18px;
-    }
-    .problemCard h3{
-      font-size:21px;
-      line-height:1.18;
-      margin:0 0 8px;
-      font-weight:720;
-      letter-spacing:-.02em;
-    }
-    .problemCard p{
-      color:var(--muted);
-      margin:0;
-    }
-    .realNote{
-      border-top:1px solid #111;
-      padding-top:20px;
-      margin-top:34px;
-      max-width:840px;
-      color:var(--muted);
-    }
-
-    .fieldcase{display:grid;grid-template-columns:.92fr 1.08fr;gap:44px;align-items:start}
-    .dataGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
-    .dataCard{border:0;border-top:1px solid #111;padding:18px 0 0;background:transparent}
-    .dataCard h3{font-size:20px;line-height:1.18;margin:0 0 8px;font-weight:720;letter-spacing:-.02em}
-    .dataCard p{color:var(--muted);margin:0}
-    .dataTable{border-top:1px solid #111;margin-top:26px}
-    .dataLine{display:grid;grid-template-columns:180px 1fr 120px;border-bottom:1px solid var(--line)}
-    .dataLine div{padding:13px 16px 13px 0;color:#333}
-    .dataLine b{color:#111}
-    .factoryStory{border-top:1px solid #111;padding-top:20px}
-    .factoryStory p{color:var(--muted);margin:0 0 14px}
-    .pipeline{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;margin-top:30px}
-    .pipeStep{border-top:1px solid #111;padding-top:14px}
-    .pipeStep b{display:block;font-size:16px;letter-spacing:-.015em;margin-bottom:6px}
-    .pipeStep span{display:block;color:var(--muted);font-size:14px}
-
-    .metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:28px}
-    .metric{border:0;border-top:1px solid #111;border-radius:0;background:transparent;padding:18px 0 0}
-    .metric b{font-size:36px;line-height:1;color:#111;display:block;letter-spacing:-.04em;font-weight:760}
-    .metric span{display:block;margin-top:12px;color:var(--muted)}
-
-    .table{border:0;border-top:1px solid #111;border-radius:0;overflow:visible;background:transparent}
-    .row{display:grid;grid-template-columns:220px 1fr 1fr;border-bottom:1px solid var(--line)}
-    .cell{padding:16px 18px 16px 0;border-right:0;color:#333}
-    .cell b{color:#111}
-
-    .quote{font-size:23px;line-height:1.4;letter-spacing:-.02em;color:#111;margin-top:12px}
-    .cta{
-      border:0;
-      border-top:1px solid #111;
-      background:transparent;
-      border-radius:0;
-      padding:26px 0 0;
-      display:grid;
-      grid-template-columns:1.2fr .8fr;
-      gap:56px;
-      align-items:start;
-    }
-    .cta .panel{border-left:0;border-top:1px solid var(--line);padding:20px 0 0}
-    footer{padding:38px 0 58px;color:var(--muted);border-top:0}
-    .small{font-size:14px;color:var(--muted)}
-
-    @media(max-width:930px){
-      .heroGrid,.award,.grid2,.cta,.fieldcase{grid-template-columns:1fr}
-      .grid3,.metrics,.dataGrid,.photoGrid,.problemGrid{grid-template-columns:repeat(2,1fr)}
-      .pipeline{grid-template-columns:repeat(2,1fr)}
-      .links{display:none}
-      .panel{border-left:0;border-top:1px solid var(--line);padding:20px 0 0}
-      .step{grid-template-columns:50px 1fr;gap:10px 16px}
-      .step span{grid-column:2}
-      .row{grid-template-columns:1fr}
-      .cell{border-bottom:1px solid var(--line)}
-      .cell:last-child{border-bottom:0}
-    }
-    @media(max-width:560px){
-      .wrap{width:min(var(--max),calc(100% - 28px))}
-      .grid3,.metrics,.dataGrid,.pipeline,.photoGrid,.problemGrid{grid-template-columns:1fr}
-      .hero{padding-top:52px}
-      .fact,.dataLine{grid-template-columns:1fr;gap:4px}
-      .actions{gap:14px}
-      .step{grid-template-columns:42px 1fr}
-    }
-  </style>
+  <title>Federe Öğrenme ile IoT Üretim Verileri Analizi | TBD İstanbul Bilişim Yıldızları 2026</title>
+  <meta name="description" content="OPC UA tabanlı endüstriyel sensör verilerinin federe öğrenme ile gizlilik korumalı analizi: kestirimci bakım, kestirimci kalite ve dağıtık yapay zekâ mimarisi." />
+  <meta name="theme-color" content="#07111f" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <nav class="nav"><div class="wrap navin"><a class="brand" href="#top"><span class="logo">FL</span><span>Federe Öğrenme ile Endüstriyel Yapay Zekâ</span></a><div class="links"><a href="#ozet">Özet</a><a href="#saha">Kablo hattı</a><a href="#yaklasim">Yaklaşım</a><a href="#akis">Akış</a><a href="#etki">Etki</a><a href="#basvuru">Kısa özet</a></div></div></nav>
-  <main id="top">
-    <header class="hero"><div class="wrap heroGrid"><div><div class="kicker">Yüksek lisans tezinden sadeleştirilmiş proje anlatımı</div><h1>Veri fabrikada kalsın, yapay zekâ yine de öğrensin.</h1><p class="lead">Bu proje, kablo üretim hattından gelen IoT/OPC sensör verilerini tek bir merkeze taşımadan yapay zekâ modeli eğitmeyi hedefler. Sıcaklık, basınç, çekme kuvveti, hat hızı ve üretim zamanı gibi verilerden hattın normal çalışma düzeni öğrenilir; arıza ve kalite sapmaları daha erken fark edilmeye çalışılır. Ham üretim verisi ise fabrikanın içinde kalır.</p><div class="actions"><a class="btn primary" href="#basvuru">Başvuru özeti</a><a class="btn" href="assets/tez.pdf">Tez PDF</a><a class="btn" href="#akis">Nasıl çalışır?</a></div></div><aside class="panel"><span class="badge">Proje kimliği</span><div style="margin-top:14px"><div class="fact"><b>Kurum</b><span>Bursa Teknik Üniversitesi</span></div><div class="fact"><b>Araştırmacı</b><span>Süleyman Burak Altınışık</span></div><div class="fact"><b>Danışman</b><span>Prof. Dr. Turgay Tugay Bilgin</span></div><div class="fact"><b>Düzey</b><span>Üniversite / Yüksek Lisans Tezi</span></div><div class="fact"><b>Alan</b><span>Endüstriyel IoT, Yapay Zekâ, Federe Öğrenme, Veri Gizliliği</span></div><div class="fact"><b>Şehir</b><span>Bursa</span></div></div></aside></div></header>
+  <a class="skip-link" href="#main">İçeriğe geç</a>
+  <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
 
-    <section id="ozet"><div class="wrap"><div class="head"><div class="kicker"></div><h2>Bu proje hangi problemi çözüyor?</h2><p>Fabrikalardaki sensör verisi büyüyor; fakat bu veriyi merkeze taşımak hem maliyetli hem de riskli. Proje, veriyi yerinde tutarak ortak model eğitme fikrini endüstriyel üretim verisine uygular.</p></div><div class="grid3"><article class="card"><div class="icon">🔐</div><h3>Veri gizliliği</h3><p>Ham üretim verisi merkezi sunucuya aktarılmaz. Model güncellemeleri paylaşılır; diferansiyel gizlilik ve güvenli toplama yaklaşımlarıyla risk azaltılır.</p></article><article class="card"><div class="icon">🏭</div><h3>Üretim sürekliliği</h3><p>Kablo hattından gelen sıcaklık, basınç, çekme kuvveti, hat hızı ve sıcak çap/reel gibi OPC verileriyle kalite sapması ve bakım ihtiyacı daha erken tespit edilebilir.</p></article><article class="card"><div class="icon">📉</div><h3>Daha düşük iletişim yükü</h3><p>Ham veri akışı yerine sıkıştırılmış model güncellemeleri kullanılarak ağ trafiği ve merkezi depolama ihtiyacı azaltılabilir.</p></article></div></div></section>
+  <header class="site-header" id="top">
+    <nav class="navbar" aria-label="Ana menü">
+      <a class="brand" href="#top" aria-label="Site başlangıcı">
+        <span class="brand-mark">FL</span>
+        <span class="brand-text">Endüstriyel Federe Öğrenme</span>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks">Menü</button>
+      <div class="nav-links" id="navLinks">
+        <a href="#amac">Amaç</a>
+        <a href="#ozgun">Özgünlük</a>
+        <a href="#mimari">Mimari</a>
+        <a href="#sonuclar">Sonuçlar</a>
+        <a href="#etki">Etki</a>
+        <a href="#etik">Etik</a>
+      </div>
+    </nav>
 
+    <section class="hero section-pad">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">TBD İstanbul Bilişim Yıldızları 2026 Aday Projesi</p>
+          <h1>Üretim verisini fabrikadan çıkarmadan yapay zekâ ile bakım ve kalite tahmini</h1>
+          <p class="hero-lead">Bu proje, kablo üretim hattından OPC UA ile alınan gerçek sensör verilerini federe öğrenme mimarisiyle işler. Ham veri merkezi sunucuya taşınmaz; makineler yerelde öğrenir, sunucu yalnızca model güncellemelerini birleştirir.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#sonuclar">Sayısal sonuçları gör</a>
+            <a class="btn btn-secondary" href="#mimari">Sistem mimarisini incele</a>
+            <a class="btn btn-secondary" href="assets/tez.pdf" download>Tezi PDF olarak indir</a>
+          </div>
+        </div>
+        <aside class="identity-card" aria-label="Proje kimliği">
+          <h2>Proje Kimliği</h2>
+          <dl>
+            <div><dt>Başvuru Düzeyi</dt><dd>Üniversite Projeleri</dd></div>
+            <div><dt>Başvuru Alanı</dt><dd>Büyük Veri, Yapay Zekâ, Makine Öğrenmesi ve Veri Madenciliği</dd></div>
+            <div><dt>Öğrenci</dt><dd>Süleyman Burak Altınışık</dd></div>
+            <div><dt>Danışman</dt><dd>Prof. Dr. Turgay Tugay BİLGİN</dd></div>
+            <div><dt>ORCID</dt><dd>Araştırmacı: 0009-0005-0987-1798<br />Danışman: 0000-0002-9245-5728</dd></div>
+            <div><dt>Anabilim Dalı</dt><dd>Bursa Teknik Üniversitesi Bilgisayar Mühendisliği Anabilim Dalı, Tezli Yüksek Lisans Programı</dd></div>
+            <div><dt>Tez Tarihi</dt><dd>Temmuz 2025</dd></div>
+            <!-- <div><dt>Tez PDF</dt><dd><a href="assets/tez.pdf" download>Tezi PDF olarak indir</a></dd></div> -->
+            <div><dt>İletişim</dt><dd><a href="mailto:suleyman.016@hotmail.com">suleyman.016@hotmail.com</a> / <a href="https://www.linkedin.com/in/burakaltinisik/" target="_blank" rel="noopener">LinkedIn</a></dd></div>
+          </dl>
+        </aside>
+      </div>
+    </section>
+  </header>
 
+  <main id="main">
+    <section class="section-pad problem-section" id="problem">
+      <div class="container two-col align-start">
+        <div>
+          <p class="eyebrow">Gerçek hayat problemi</p>
+          <h2>Kablo üretiminde plansız duruş, kalite sapması ve veri gizliliği aynı anda ele alındı</h2>
+          <p>Modern üretim hatlarında sıcaklık, basınç, hız, çap ve çekme kuvveti gibi parametreler ürün kalitesini ve makine sağlığını doğrudan etkiler. Geleneksel merkezi yapay zekâ yaklaşımı, bu verileri tek bir sunucuya taşımayı gerektirir; bu da stratejik üretim verisi için güvenlik, bant genişliği ve maliyet riski doğurur.</p>
+          <p>Bu çalışmada ham üretim verisi fabrika dışına çıkarılmadan analiz yapılabilecek dağıtık bir mimari önerildi. Amaç, üretim hattında oluşabilecek kalite sapmalarını ve bakım ihtiyacını erken yakalarken veri egemenliğini korumaktır.</p>
+        </div>
+        <div class="stat-stack" aria-label="Öne çıkan sayılar">
+          <div class="stat-card"><strong>37</strong><span>eşzamanlı sensör sinyali</span></div>
+          <div class="stat-card"><strong>3–20</strong><span>istemcili senaryoda doğrulama</span></div>
+          <div class="stat-card"><strong>%60</strong><span>iletişim yükünde hedeflenen/ölçülen azalma</span></div>
+          <div class="stat-card"><strong>0.92</strong><span>federe öğrenme doğruluğu</span></div>
+        </div>
+      </div>
+    </section>
 
-    <section id="saha"><div class="wrap"><div class="head"><div class="kicker">Gerçek üretim örneği</div><h2>Kablo üretim hattında hangi veriyi aldım, neye dönüştürdüm?</h2><p>Bu çalışma masa başında kurulmuş soyut bir yapay zekâ denemesi değildi. Fotoğraflarda görülen kablo üretim hattı gibi gerçek bir endüstriyel ortamdan gelen üretim verisini ele aldım: makinenin çalışma anını, sensör sinyallerini, ürün/iş emri bağlamını ve ölçüm zamanını birlikte okuyarak hattın normal davranışını yapay zekâya öğretmeye çalıştım.</p></div>
+    <section class="section-pad" id="amac">
+      <div class="container">
+        <p class="eyebrow">Amaç ve hedefler</p>
+        <h2>Projenin temel hedefleri</h2>
+        <div class="cards four">
+          <article class="card numbered">
+            <span>01</span>
+            <h3>Kestirimci bakım</h3>
+            <p>Üretim hatlarındaki makinelerin arıza ve performans dalgalanmalarını, her makinenin kendi üzerinde analiz yaparak yerel model güncellemeleriyle genel öğrenme sürecine katkı verdiği bir mimariyle ele almak.</p>
+          </article>
+          <article class="card numbered">
+            <span>02</span>
+            <h3>Kestirimci kalite</h3>
+            <p>Üretim hatlarındaki kalite sapmalarını erken aşamada tespit edebilen, her hatta yerel olarak çalışan dağıtık modeller geliştirmek.</p>
+          </article>
+          <article class="card numbered">
+            <span>03</span>
+            <h3>Veri gizliliği</h3>
+            <p>Üretim verisini yerel makinelerde işleyip yalnızca model güncellemelerini paylaşan, diferansiyel gizlilik ve güvenli toplama protokolleriyle güçlendirilmiş bir mimari kurmak.</p>
+          </article>
+          <article class="card numbered">
+            <span>04</span>
+            <h3>Endüstri 4.0 / 5.0</h3>
+            <p>Merkezi modelleme ihtiyacını ortadan kaldırarak, daha ölçeklenebilir ve sürdürülebilir endüstriyel yapay zekâ çözümleri sunmak.</p>
+          </article>
+        </div>
+      </div>
+    </section>
 
-      <div class="photoGrid" aria-label="Kablo üretim hattı fotoğrafları">
-        <figure class="photoCard">
-          <img src="assets/kablo-hatti-ekstruder-1.jpg" alt="Kablo üretim hattında ekstrüder ve kontrol ekipmanları" loading="lazy">
-          <figcaption>Ekstrüder hattı, malzeme besleme ünitesi, kontrol paneli ve üretim çevresindeki sensör/kontrol altyapısı.</figcaption>
-        </figure>
-        <figure class="photoCard">
-          <img src="assets/kablo-hatti-ekstruder-2.jpg" alt="Kablo üretim hattının geniş görünümü" loading="lazy">
-          <figcaption>Üretim hattının geniş görünümü: farklı noktalardan gelen veriler aynı sürecin farklı parçalarını anlatıyor.</figcaption>
-        </figure>
-        <figure class="photoCard">
-          <img src="assets/kablo-hatti-kontrol-paneli.jpg" alt="Kablo üretim hattında operatör paneli ve sarım bölümü" loading="lazy">
-          <figcaption>Operatör ekranı, sarım/hat bölgesi ve ölçüm noktaları: verinin üretim kararına dönüştüğü saha katmanı.</figcaption>
+    <section class="section-pad alt-bg" id="ozgun">
+      <div class="container">
+        <p class="eyebrow">Yerli, milli ve özgün yönler</p>
+        <h2>Bu proje neden yerli, milli ve özgün?</h2>
+        <div class="feature-grid">
+          <article class="feature-card highlight">
+            <h3>Özgün akademik katkı</h3>
+            <p>Bursa Teknik Üniversitesi Bilgisayar Mühendisliği Anabilim Dalı’nda, Türk araştırmacı tarafından Türk danışman gözetiminde tamamlanan yüksek lisans tezine dayanmaktadır. Fikri ve sınai mülkiyet hakları araştırmacıya aittir.</p>
+          </article>
+          <article class="feature-card">
+            <h3>Sahadan Türk sanayi verisi</h3>
+            <p>Sistem, yurt içi bir kablo üretim tesisinden alınan gerçek OPC sensör verileri üzerinde uygulanmıştır. Veri yurt dışına çıkarılmamıştır.</p>
+          </article>
+          <article class="feature-card">
+            <h3>OPC UA + federe öğrenme</h3>
+            <p>Endüstriyel veri protokolü OPC UA ile federe öğrenmenin uçtan uca entegrasyonu, üretim verisi bağlamında nadir karşılaşılan özgün bir kombinasyondur.</p>
+          </article>
+          <article class="feature-card">
+            <h3>Çok katmanlı güvenlik</h3>
+            <p>Diferansiyel gizlilik, güvenli toplama, RSA-OAEP asimetrik şifreleme ve TLS ile veri ve model parametreleri katmanlı biçimde korunur.</p>
+          </article>
+          <article class="feature-card">
+            <h3>Düşük donanımlı istemciler</h3>
+            <p>Asenkron güncelleme yapısı, daha sınırlı donanıma sahip üretim cihazlarının da öğrenme sürecine katılmasını sağlar.</p>
+          </article>
+          <article class="feature-card">
+            <h3>Yabancı bulut bağımlılığını azaltır</h3>
+            <p>Üretim verisi yurt dışı bulut sağlayıcılarına gönderilmeden fabrika içinde yerel olarak işlenir. Bu yaklaşım veri egemenliği açısından stratejik değer taşır.</p>
+          </article>
+        </div>
+        <div class="callout">
+          <strong>Stratejik uyum:</strong> Mimari, savunma sanayi tedarik zinciri, otomotiv yan sanayi, enerji ve kablo üretimi gibi stratejik sektörlerin verilerini tesis dışına çıkarmadan yapay zekâ kullanmasına olanak tanır.
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad" id="mimari">
+      <div class="container">
+        <p class="eyebrow">Sistem mimarisi</p>
+        <h2>OPC verisi yerelde işlenir, sunucu yalnızca modeli birleştirir</h2>
+        <p class="section-lead">Sistem mimarisi üç ana katmandan oluşur: OPC üzerinden veri toplama katmanı, istemcilerde yerel model eğitimi katmanı ve merkezi sunucuda FedAvg algoritmasıyla model birleştirme katmanı. İstemciden sunucuya aktarılan model ağırlıkları, diferansiyel gizlilik (Laplace gürültü ekleme) ve RSA-OAEP asimetrik şifrelemeyle korunur. TLS protokolü ile iletim güvenliği sağlanır.</p>
+
+        <div class="figure-grid">
+          <figure class="figure-card wide">
+            <img src="assets/img/system-block-diagram.png" alt="Veri toplama, ön işleme, istemci eğitimi, parametre transferi ve FedAvg sunucu agregasyonu adımlarını gösteren sistem blok diyagramı" loading="lazy" />
+            <figcaption>Şekil 4.11 — Sistem mimarisinin blok diyagramı</figcaption>
+          </figure>
+          <figure class="figure-card">
+            <img src="assets/img/opc-fl-data-flow.png" alt="OPC veri kaynağından veri ön işleme, yerel model eğitimi, model ağırlıkları ve federe sunucu aşamalarına uzanan OPC-FL veri akış diyagramı" loading="lazy" />
+            <figcaption>Şekil 4.5 — OPC–FL veri akış diyagramı</figcaption>
+          </figure>
+          <figure class="figure-card">
+            <img src="assets/img/fl-vs-central.png" alt="Federe öğrenme ve geleneksel merkezi modelin doğruluk, eğitim süresi ve iletişim maliyeti açısından karşılaştırılması" loading="lazy" />
+            <figcaption>Şekil 2.5 — Federe öğrenme ve geleneksel model karşılaştırması</figcaption>
+          </figure>
+          <figure class="figure-card wide">
+            <img src="assets/img/security-architecture.png" alt="İstemcide diferansiyel gizlilik, AES, TLS, RSA ve sunucuda FedAvg ile güvenli toplama akışını gösteren FL güvenlik mimarisi" loading="lazy" />
+            <figcaption>Şekil 4.20 — FL güvenlik mimarisi, katmanlı koruma yapısı</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad alt-bg" id="yontem">
+      <div class="container">
+        <p class="eyebrow">Yöntem, teknolojiler ve araçlar</p>
+        <h2>Uygulama yığını açık standartlar ve yaygın bilimsel kütüphaneler üzerine kuruldu</h2>
+        <div class="table-grid">
+          <div class="table-card">
+            <h3>Yazılım kütüphaneleri</h3>
+            <div class="table-wrap">
+              <table>
+                <thead><tr><th>Kütüphane / Teknoloji</th><th>Rolü</th></tr></thead>
+                <tbody>
+                  <tr><td>Python 3.9</td><td>Geliştirme dili</td></tr>
+                  <tr><td>TensorFlow 2.12.0</td><td>Derin öğrenme ve FL modeli</td></tr>
+                  <tr><td>TensorFlow Federated 0.20.0</td><td>Federe öğrenme altyapısı</td></tr>
+                  <tr><td>PyTorch + PySyft</td><td>Gizlilik koruyucu alternatif eğitim</td></tr>
+                  <tr><td>scikit-learn 1.2.2</td><td>Model değerlendirme ve validasyon</td></tr>
+                  <tr><td>pandas 1.5.3, NumPy 1.24.2</td><td>Veri işleme ve analiz</td></tr>
+                  <tr><td>Flask 2.2.3</td><td>Sunucu-istemci iletişimi</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="table-card">
+            <h3>Endüstriyel altyapı ve güvenlik</h3>
+            <div class="table-wrap">
+              <table>
+                <thead><tr><th>Kütüphane / Teknoloji</th><th>Rolü</th></tr></thead>
+                <tbody>
+                  <tr><td>OPC UA</td><td>Endüstriyel veri toplama protokolü</td></tr>
+                  <tr><td>MSSQL</td><td>Veri tabanı</td></tr>
+                  <tr><td>TLS / DTLS</td><td>İletim güvenliği</td></tr>
+                  <tr><td>RSA-OAEP (2048 bit)</td><td>Asimetrik şifreleme</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="method-grid">
+          <article class="method-card">
+            <h3>Model ve eğitim</h3>
+            <ul>
+              <li>Model: Tam Bağlantılı Sinir Ağı (FCNN)</li>
+              <li>Katmanlar: 37 giriş, 128–64–32–16 gizli katman, 1 sigmoid çıkış</li>
+              <li>Optimizasyon: Early Stopping, gradyan sıkıştırma, seyrek güncelleme, asenkron aggregation</li>
+            </ul>
+          </article>
+          <article class="method-card">
+            <h3>Federe öğrenme</h3>
+            <ul>
+              <li>Birleştirme: FedAvg ve FedProx karşılaştırmalı kullanım</li>
+              <li>İstemci senaryoları: 3, 10 ve 20 istemci</li>
+              <li>Yerel eğitim: Ham üretim verisi istemci dışına çıkmaz</li>
+            </ul>
+          </article>
+          <article class="method-card">
+            <h3>Gizlilik ve etiketleme</h3>
+            <ul>
+              <li>Diferansiyel Gizlilik: Laplace mekanizması</li>
+              <li>Güvenli Toplama: Secure Aggregation</li>
+              <li>Etiketleme: Sensör değerlerinde ±%5 tolerans tabanlı otomatik etiketleme</li>
+            </ul>
+          </article>
+        </div>
+
+        <figure class="figure-card single">
+          <img src="assets/img/fcnn-architecture.png" alt="37 girişli, ReLU gizli katmanlı ve sigmoid çıkışlı FCNN model mimarisi" loading="lazy" />
+          <figcaption>Şekil 5.3 — Kullanılan FCNN model mimarisi</figcaption>
         </figure>
       </div>
+    </section>
 
-      <div class="fieldcase"><div class="factoryStory"><p><strong>Basit anlatımla:</strong> kablo hattı çalışırken makine sürekli iz bırakır. Hat ne hızda ilerliyor, sıcak çap/reel değeri nasıl değişiyor, basınç ve çekme kuvveti normal aralıkta mı, hangi ürün veya iş emri için hangi vardiyada ölçüm alınmış? Bu izleri bir doktorun nabız, tansiyon ve ateşi birlikte okuması gibi birlikte değerlendirdim.</p><p>Veri tabanındaki her satırı, üretim hattının o saniyedeki “fotoğrafı” gibi düşündüm. Bu fotoğrafta ürün veya iş emri kodu, üretimin hangi vardiya/operasyon bağlamında gerçekleştiğini gösteren referans bilgi, ölçüm zamanı ve hattın farklı noktalarından gelen sensör değerleri birlikte yer aldı. Böylece model, yalnızca tek bir sıcaklık değerine değil; ürün, zaman, vardiya ve makine davranışını aynı anda anlatan daha geniş bir üretim bağlamına bakabildi.</p><p>Modelin görevi, bu sinyallerden hattın normal çalışma ritmini öğrenmekti. Her sensörün ortalama değeri etrafında ±%5 tolerans aralığı kullanılarak kayıtlar “iyi” veya “kötü” şeklinde etiketlendi. Böylece sistem, kalite sapması veya bakım ihtimali doğurabilecek durumları erken işaretleyebilecek bir sınıflandırma problemine dönüştürüldü.</p></div><div><div class="dataGrid"><article class="dataCard"><h3>1. Ürün ve operasyon bağlamı</h3><p>Her ölçümün hangi ürün/iş emriyle ve hangi üretim koşuluyla ilişkili olduğu izlendi. Bu bilgi, modelin farklı ürünlerde oluşan davranış farklarını ayırmasına yardım etti.</p></article><article class="dataCard"><h3>2. Ölçüm zamanı</h3><p>Her kayıt zaman damgasıyla tutulduğu için veriler dakika/saniye düzeyinde sıralandı; gün içi değişim, vardiya etkisi ve gece üretimindeki sapmalar incelendi.</p></article><article class="dataCard"><h3>3. Sensör ölçümleri</h3><p>Hattın farklı noktalarından gelen 37 sensör sinyali; sıcaklık, basınç, çekme kuvveti, hat hızı ve sıcak çap/reel gibi üretim davranışlarını okumak için işlendi.</p></article><article class="dataCard"><h3>4. Karar etiketi</h3><p>±%5 tolerans yaklaşımıyla hattın normal veya sapmalı çalıştığı anlar sınıflandırılabilir hale getirildi.</p></article></div><div class="dataTable" aria-label="Kablo hattı veri örnekleri"><div class="dataLine"><div><b>Veri tipi</b></div><div><b>Ne anlatıyor?</b></div><div><b>Kullanım</b></div></div><div class="dataLine"><div>Ürün / iş emri kodu</div><div>Ölçümün hangi üretim işi veya ürün grubu için alındığını gösterir.</div><div>Bağlam</div></div><div class="dataLine"><div>Operasyon / vardiya bağlamı</div><div>Üretim koşullarını yorumlamak için kullanılan referans bilgidir; kişisel veri paylaşımı yapılmaz.</div><div>Bağlam</div></div><div class="dataLine"><div>Ölçüm zamanı</div><div>Verinin hangi gün, saat ve üretim anında oluştuğunu gösterir.</div><div>Zaman serisi</div></div><div class="dataLine"><div>Sensör ölçümleri</div><div>Sıcaklık, basınç, çekme kuvveti, hat hızı ve sıcak çap/reel gibi üretim davranışlarını anlatır.</div><div>Model girdisi</div></div></div></div></div>
+    <section class="section-pad" id="sonuclar">
+      <div class="container">
+        <p class="eyebrow">Sayısal sonuçlar ve performans metrikleri</p>
+        <h2>Federe mimari, küçük doğruluk farkıyla veri gizliliği ve dağıtık çalışma avantajı sağladı</h2>
+        <p class="section-lead">Model, her deney koşulu için en az 5 kez tekrarlanan testlerde doğruluk, precision, recall ve F1 score metrikleriyle değerlendirildi. Sonuçlar, gizlilik bütçesi sıkılaştıkça performansta beklenen düşüş olduğunu; buna rağmen sistemin kabul edilebilir ve tutarlı performans verdiğini gösterdi.</p>
 
-      <div class="problemGrid" aria-label="Çözülen gerçek hayat problemleri">
-        <article class="problemCard"><h3>1. Kalite sapmasını geç fark etme problemi</h3><p>Kablo üretiminde küçük bir sıcaklık, hız veya çekme kuvveti sapması ürün kalitesini etkileyebilir. Çalışmada sensör değerleri ±%5 tolerans mantığıyla izlenerek hattın kararlı mı sapmalı mı çalıştığı sınıflandırılabilir hale getirildi.</p></article>
-        <article class="problemCard"><h3>2. Plansız duruş ve bakım maliyeti problemi</h3><p>Makine davranışındaki anormallikler erken okunmadığında arıza büyüyebilir ve hat durabilir. Model, bakım ihtimali doğurabilecek olağan dışı üretim davranışlarını daha erken işaretlemeye yönelik bir karar destek altyapısı olarak kurgulandı.</p></article>
-        <article class="problemCard"><h3>3. Hassas üretim verisini merkeze taşıma problemi</h3><p>Üretim reçetesi, hat hızı, sıcaklık ve kalite davranışı firma için stratejik bilgidir. Federe öğrenme yaklaşımıyla ham veri üretim hattında bırakıldı; merkeze yalnızca model güncellemelerinin gitmesi hedeflendi.</p></article>
-        <article class="problemCard"><h3>4. Farklı makinelerden gelen dağınık veri problemi</h3><p>Her ekstrüder makinesi aynı sayıda ölçüm alanı üretmeyebilir. Bu nedenle veriler temizlendi, ölçeklendi, eksikler tamamlandı ve makineler arası öğrenmeyi mümkün kılmak için ortak yapıya dönüştürüldü.</p></article>
+        <div class="table-card full">
+          <h3>Genel performans</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Deney Koşulu</th><th>Accuracy</th><th>Precision</th><th>Recall</th><th>F1 Score</th></tr></thead>
+              <tbody>
+                <tr><td>Epsilon=0.20, Batch=256</td><td>0.927 ± 0.004</td><td>0.912 ± 0.005</td><td>0.921 ± 0.005</td><td>0.918 ± 0.006</td></tr>
+                <tr><td>Epsilon=0.10, Batch=512</td><td>0.911 ± 0.006</td><td>0.890 ± 0.007</td><td>0.915 ± 0.004</td><td>0.902 ± 0.005</td></tr>
+                <tr><td>Epsilon=0.05, Batch=512</td><td>0.880 ± 0.009</td><td>0.860 ± 0.008</td><td>0.895 ± 0.007</td><td>0.877 ± 0.006</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="table-grid">
+          <div class="table-card">
+            <h3>Ölçeklenebilirlik</h3>
+            <div class="table-wrap">
+              <table>
+                <thead><tr><th>İstemci Sayısı</th><th>Accuracy</th><th>F1 Score</th><th>Eğitim Süresi (sn)</th><th>İletişim Maliyeti (KB)</th></tr></thead>
+                <tbody>
+                  <tr><td>3</td><td>0.89</td><td>0.87</td><td>180</td><td>900</td></tr>
+                  <tr><td>10</td><td>0.92</td><td>0.91</td><td>220</td><td>3000</td></tr>
+                  <tr><td>20</td><td>0.93</td><td>0.92</td><td>260</td><td>6000</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="table-card">
+            <h3>Federe öğrenme vs merkezi öğrenme</h3>
+            <div class="table-wrap">
+              <table>
+                <thead><tr><th>Yöntem</th><th>Doğruluk</th><th>F1 Skoru</th><th>İletişim Maliyeti</th></tr></thead>
+                <tbody>
+                  <tr><td>Merkezi Eğitim</td><td>0.94</td><td>0.93</td><td>Yok</td></tr>
+                  <tr><td>Federe Öğrenme (aggregation=5)</td><td>0.92</td><td>0.91</td><td>320 KB / tur</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="table-note">Yorum: Federe öğrenme yaklaşımı, yaklaşık %2’lik doğruluk farkıyla veri gizliliğini koruma ve dağıtık çalışabilme gibi büyük avantajlar sağlamaktadır.</p>
+          </div>
+        </div>
+
+        <div class="figure-grid results">
+          <figure class="figure-card">
+            <img src="assets/img/model-metrics-boxplot.png" alt="Accuracy, precision, recall ve F1 score metriklerinin deney dağılımını gösteren boxplot" loading="lazy" />
+            <figcaption>Şekil 5.20 — Model değerlendirme metrikleri</figcaption>
+          </figure>
+          <figure class="figure-card">
+            <img src="assets/img/client-scalability.png" alt="İstemci sayısı arttıkça accuracy ve iletişim maliyetinin değişimini gösteren grafik" loading="lazy" />
+            <figcaption>Şekil 5.23 — İstemci sayısına göre doğruluk ve iletişim maliyeti</figcaption>
+          </figure>
+          <figure class="figure-card">
+            <img src="assets/img/fedavg-fedprox.png" alt="FedAvg ve FedProx algoritmalarının doğruluk ve standart sapma açısından karşılaştırılması" loading="lazy" />
+            <figcaption>Şekil 5.29 — FedAvg ve FedProx karşılaştırması</figcaption>
+          </figure>
+          <figure class="figure-card">
+            <img src="assets/img/sync-async-update.png" alt="Federated learning sunucu tarafında senkron ve asenkron birleştirme sözde kodu" loading="lazy" />
+            <figcaption>Şekil 5.25 — Senkron ve asenkron güncelleme yapıları</figcaption>
+          </figure>
+        </div>
       </div>
+    </section>
 
-      <p class="realNote">Bu sayfada teknik kolon adlarını özellikle geri planda bıraktım. Çünkü ödül jürisinin görmesi gereken şey veritabanı şeması değil; üretim hattından alınan ham sinyallerin kalite, bakım, veri gizliliği ve operasyonel verimlilik için anlaşılır bir karar destek problemine dönüştürülmesidir.</p>
+    <section class="section-pad alt-bg" id="yenilik">
+      <div class="container">
+        <p class="eyebrow">Yenilik ve farklılıklar</p>
+        <h2>Kavramsal FL çalışmasından gerçek saha uygulamasına geçiş</h2>
+        <div class="cards three">
+          <article class="card"><h3>1. Gerçek üretim verisi</h3><p>Hazır kıyaslama veri setleri yerine çalışan bir kablo üretim hattından OPC protokolüyle alınmış canlı sensör verileri kullanılmıştır.</p></article>
+          <article class="card"><h3>2. OPC UA + FL bütünleşmesi</h3><p>Endüstriyel veri protokolü OPC UA ile federe öğrenmenin uçtan uca entegrasyonu uygulanmıştır.</p></article>
+          <article class="card"><h3>3. Çoklu gizlilik katmanı</h3><p>Diferansiyel Gizlilik + Güvenli Toplama + RSA-OAEP + TLS birlikte uygulanmıştır.</p></article>
+          <article class="card"><h3>4. Esnek mimari</h3><p>İstemci donanımına göre senkron veya asenkron güncelleme arasında seçim yapılabilen yapı sunulmuştur.</p></article>
+          <article class="card"><h3>5. FedAvg / FedProx kıyaslaması</h3><p>Yalnızca FedAvg değil, FedProx ile de deneysel karşılaştırma yapılmıştır.</p></article>
+          <article class="card"><h3>6. Otomatik etiketleme</h3><p>±%5 tolerans tabanlı oto-etiketleme, elle etiketleme ihtiyacını azaltarak büyük veri kümelerine uygulanabilirliği artırmıştır.</p></article>
+        </div>
+      </div>
+    </section>
 
-      <div class="pipeline"><div class="pipeStep"><b>Topla</b><span>OPC/MSSQL üzerinden üretim verisi alınır.</span></div><div class="pipeStep"><b>Temizle</b><span>Eksik kayıt, aykırı değer ve zaman uyumsuzluğu düzeltilir.</span></div><div class="pipeStep"><b>Etiketle</b><span>±%5 toleransla iyi/kötü üretim davranışı ayrılır.</span></div><div class="pipeStep"><b>Öğren</b><span>Yerel model, hattın normal ritmini öğrenir.</span></div><div class="pipeStep"><b>Paylaşma</b><span>Ham veri değil, yalnızca model güncellemesi paylaşılır.</span></div></div></div></section>
+    <section class="section-pad" id="etki">
+      <div class="container">
+        <p class="eyebrow">Etki gücü ve sektörel fayda</p>
+        <h2>Dağıtık yapay zekâ, stratejik üretim verisini tesis içinde tutarak ölçeklenebilir hale gelir</h2>
+        <div class="two-col">
+          <div class="panel">
+            <h3>Hangi sektörlerde kullanılabilir?</h3>
+            <ul class="check-list">
+              <li>Kablo ve tel üretimi: kalite sapmaları, çap toleransı, sıcaklık kontrolü</li>
+              <li>Otomotiv yan sanayi: pres, kaynak ve montaj hatlarında kestirimci bakım</li>
+              <li>Savunma sanayi tedarik zinciri: hassas üretim verisinin tesis dışına çıkmadan analizi</li>
+              <li>Tekstil: dokuma ve örme makinelerinde anomali tespiti</li>
+              <li>Gıda üretimi: sıcaklık ve basınç bağımlı süreç izleme</li>
+              <li>Enerji ve petrokimya: çok lokasyonlu tesislerde merkezileştirilmiş öğrenme</li>
+            </ul>
+          </div>
+          <div class="panel accent-panel">
+            <h3>Ölçülen ve hedeflenen etkiler</h3>
+            <ul class="check-list">
+              <li>Gradyan sıkıştırma ve seyrek güncelleme ile iletişim maliyetinde %60’a varan azaltım</li>
+              <li>GPU + CPU karma kullanımı ile eğitim süresinde %30 iyileşme</li>
+              <li>3 ila 20 istemci aralığında ölçeklenebilirlik kanıtı</li>
+              <li>Diferansiyel gizlilik uygulamasıyla veri sızıntı riskinde belirgin düşüş</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <section id="yaklasim"><div class="wrap"><div class="head"><div class="kicker">Benim yaklaşımım</div><h2>Tezin özü, sanayide çok tanıdık bir ikileme dayanıyor.</h2><p>Fabrikalar veriden öğrenmek istiyor; fakat üretim verisini dışarı taşımak istemiyor. Bu çalışmada bu ikileme, “veriyi değil, öğrenilen modeli paylaşalım” fikriyle yaklaştım.</p></div><div class="award"><div class="awardBox"><h3>Sahada karşılaştığım problem</h3><ul class="check"><li>Ekstrüder hattından gelen sıcaklık, basınç, çekme kuvveti, hat hızı ve çap davranışı üretim kalitesini doğrudan etkiler.</li><li>Bu veriler yüksek hacimli ve zaman bağımlıdır; merkezde toplamak hem ağ yükü hem de veri güvenliği riski oluşturur.</li><li>Farklı makineler aynı veri yapısına sahip olmadığı için doğrudan ortak model eğitmek zordur.</li><li>Sapmalar geç fark edildiğinde hatalı üretim, plansız duruş ve bakım maliyeti büyür.</li></ul></div><div class="awardBox"><h3>Bu çalışmada uyguladığım yol</h3><ul class="check"><li>Üretim verisi temizlendi, zaman damgaları hizalandı, aykırı değerler ayrıldı ve sensörler ortak modele uygun hale getirildi.</li><li>Kayıtlar ±%5 tolerans yaklaşımıyla normal/sapmalı üretim davranışı olarak sınıflandırıldı.</li><li>Her istemci kendi verisiyle yerel modeli eğitti; merkezi sunucu ham veriyi değil, model güncellemelerini birleştirdi.</li><li>Gizlilik için diferansiyel gizlilik ve güvenli toplama; verimlilik için sıkıştırılmış/seyrek güncelleme yaklaşımı kullanıldı.</li></ul></div></div></div></section>
+    <section class="section-pad alt-bg" id="toplumsal">
+      <div class="container">
+        <p class="eyebrow">Toplumsal katma değer</p>
+        <h2>KOBİ’ler, veri egemenliği ve sürdürülebilir üretim için uygulanabilir değer</h2>
+        <div class="feature-grid five">
+          <article class="feature-card"><h3>KOBİ erişilebilirliği</h3><p>Yurt dışı bulut sağlayıcılarına yüksek aidat ödeyemeyen işletmeler, kendi tesislerinde yerel yapay zekâ uygulamaları çalıştırabilir.</p></article>
+          <article class="feature-card"><h3>Veri egemenliği</h3><p>Stratejik üretim verileri yurt dışı sunuculara çıkmadan değer üretir. KVKK ve veri egemenliği ilkeleriyle uyumludur.</p></article>
+          <article class="feature-card"><h3>Çevresel etki</h3><p>Plansız duruşların azalması, hammadde fire oranını ve karbon ayak izini düşürür. Hatalı üretim erken tespit edildiği için atık miktarı azalır.</p></article>
+          <article class="feature-card"><h3>Nitelikli istihdam</h3><p>Yerel veri mühendisliği, MLOps ve endüstriyel yapay zekâ uzmanlığı ihtiyacını artırır.</p></article>
+          <article class="feature-card"><h3>Bilgi birikimi</h3><p>Tez kapsamında üretilen literatür ve kod tabanı, Türk akademisinin federe öğrenme alanındaki birikimine doğrudan katkı sunar.</p></article>
+        </div>
+      </div>
+    </section>
 
-    <section id="akis"><div class="wrap"><div class="head"><div class="kicker">Teknik olmayan anlatım</div><h2>Nasıl çalışır?</h2><p>Bir fabrikanın farklı üretim hatları ortak akla katkı verir; ama kendi ham verisini dışarı çıkarmaz.</p></div><div class="flow"><div class="step"><div class="num">1</div><strong>OPC sensörleri</strong><span>Kablo hattından sıcaklık, basınç, çekme kuvveti, hat hızı, sıcak çap/reel ve zaman damgalı üretim parametreleri toplanır.</span></div><div class="step"><div class="num">2</div><strong>Yerel eğitim</strong><span>Her üretim hattı kendi verisiyle modeli günceller.</span></div><div class="step"><div class="num">3</div><strong>Gizlilik katmanı</strong><span>Diferansiyel gizlilik ve güvenli toplama uygulanır.</span></div><div class="step"><div class="num">4</div><strong>Model birleştirme</strong><span>Sunucu, FedAvg ile model güncellemelerini birleştirir.</span></div><div class="step"><div class="num">5</div><strong>Karar desteği</strong><span>Bakım ihtiyacı ve kalite sapması için erken uyarı üretilir.</span></div></div></div></section>
+    <section class="section-pad" id="surdurulebilirlik">
+      <div class="container">
+        <p class="eyebrow">Başarı, ölçülebilirlik ve sürdürülebilirlik</p>
+        <h2>Akademik olarak doğrulanmış, teknik olarak izlenebilir ve modüler</h2>
+        <div class="two-col">
+          <div class="panel">
+            <h3>Projenin doğrulanması ve ölçülebilirliği</h3>
+            <ul class="check-list">
+              <li>Akademik onay: Bursa Teknik Üniversitesi Lisansüstü Eğitim Enstitüsü’nde Temmuz 2025’te savunularak kabul edilmiştir.</li>
+              <li>İntihal denetimi: Üniversitenin intihal yazılımıyla denetlenerek belirlenen eşik altında rapor alınmıştır.</li>
+              <li>Akademik yayın: Altınışık ve Bilgin (2024) referansıyla akademik literatüre dahil edilmiştir.</li>
+              <li>Tekrarlanabilirlik: Her deney koşulu en az 5 kez tekrarlanmış, sonuçlar ortalama ± standart sapma olarak raporlanmıştır.</li>
+              <li>Performans izleme: Confusion matrix kayıtları CSV formatında arşivlenerek geçmişe dönük izleme sağlanmıştır.</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h3>Sürdürülebilirlik</h3>
+            <ul class="check-list">
+              <li>Açık standartlar: OPC UA, TLS, RSA gibi standartlar üzerine kuruludur.</li>
+              <li>Modüler mimari: İstemci sayısı, epsilon ve aggregation frequency bağımsız ayarlanabilir.</li>
+              <li>Düşük donanım gereksinimi: Asenkron güncelleme ile sınırlı kaynaklı istemciler katılabilir.</li>
+              <li>Yol haritası: Model kişiselleştirme, hibrit FL ve blokzincir entegrasyonu gibi gelişim alanları tanımlanmıştır.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <section id="etki"><div class="wrap"><div class="head"><div class="kicker">Dijital dönüşüm etkisi</div><h2>Bu proje neden sadece akademik değil, sanayi için de anlamlı?</h2><p>Çünkü üretim tesislerinde yapay zekânın en büyük engellerinden biri olan “veriyi paylaşma korkusunu” teknik mimariyle azaltmayı hedefler.</p></div><div class="metrics"><div class="metric"><b>%60</b><span>Sıkıştırma ve seyrek güncelleme mantığıyla iletişim yükünü azaltma hedefi/gözlemi.</span></div><div class="metric"><b>5–100</b><span>Farklı istemci sayılarıyla ölçeklenebilir mimari kurgusu.</span></div><div class="metric"><b>%30</b><span>CPU/GPU birlikte kullanımında eğitim süresinde iyileşme gözlemi.</span></div><div class="metric"><b>DP + SA</b><span>Diferansiyel gizlilik ve güvenli toplama ile mahremiyet katmanı.</span></div></div></div></section>
+    <section class="section-pad alt-bg" id="kapsam">
+      <div class="container">
+        <p class="eyebrow">Hedef kitle, hizmet kapasitesi ve sınırlılıklar</p>
+        <h2>Kapsam şeffaf biçimde tanımlandı</h2>
+        <div class="cards three">
+          <article class="card">
+            <h3>Hedef kullanıcılar</h3>
+            <ul>
+              <li>Türk imalat sanayisindeki çok lokasyonlu üretim tesisleri</li>
+              <li>Veri gizliliği yüksek öncelikli savunma ve otomotiv yan sanayi firmaları</li>
+              <li>KOBİ ölçekli üreticiler için yapay zekâ benimsemesini kolaylaştıran çözüm arayanlar</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Hizmet kapasitesi</h3>
+            <ul>
+              <li>3 ila 20 istemcili senaryolarda doğrulanmıştır</li>
+              <li>37 farklı sensör sinyalini eşzamanlı işleyebilmektedir</li>
+              <li>OPC UA destekleyen her endüstriyel cihazla uyumludur</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Sınırlılıklar</h3>
+            <ul>
+              <li>Sistem şu an Windows ve Linux tabanlı sunucularda test edilmiştir</li>
+              <li>Çok düşük bant genişlikli ağlarda asenkron mod tercih edilmelidir</li>
+              <li>Diferansiyel gizlilik parametresi kuruma özel gizlilik-performans dengesine göre ayarlanmalıdır</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
 
-    <section><div class="wrap"><div class="head"><div class="kicker">Kıyas</div><h2>Merkezi yapay zekâ yerine neden federe öğrenme?</h2></div><div class="table"><div class="row"><div class="cell"><b>Kriter</b></div><div class="cell"><b>Merkezi öğrenme</b></div><div class="cell"><b>Federe öğrenme</b></div></div><div class="row"><div class="cell">Veri akışı</div><div class="cell">Ham veri merkeze taşınır.</div><div class="cell">Ham veri yerelde kalır; model güncellemeleri paylaşılır.</div></div><div class="row"><div class="cell">Gizlilik</div><div class="cell">Tek merkez kritik risk noktasıdır.</div><div class="cell">Veri minimizasyonu ve gizlilik katmanlarıyla risk azaltılır.</div></div><div class="row"><div class="cell">Sanayiye uyum</div><div class="cell">Çok lokasyonlu tesislerde yüksek ağ ve depolama yükü doğurabilir.</div><div class="cell">Dağıtık üretim hatlarında daha ölçeklenebilir bir yaklaşım sunar.</div></div><div class="row"><div class="cell">Karar desteği</div><div class="cell">Tek veri havuzuna bağımlıdır.</div><div class="cell">Farklı tesisler ortak modele katkı verebilir.</div></div></div></div></section>
-
-    <section id="basvuru"><div class="wrap"><div class="cta"><div><div class="kicker">Kısa proje özeti</div><p class="quote">Bu çalışma, kablo üretim hattından alınan OPC/MSSQL sensör verilerini kullanarak veriyi merkezi sunucuya taşımadan yapay zekâ modeli eğitmeyi amaçlayan, gizlilik korumalı ve ölçeklenebilir bir endüstriyel IoT analiz yaklaşımıdır.</p><p class="muted">Federe öğrenme sayesinde her üretim hattı kendi verisiyle yerel model eğitir; merkezi sunucu yalnızca model güncellemelerini birleştirerek ortak modeli oluşturur. Bu çalışmada sıcaklık, basınç, çekme kuvveti, hat hızı ve zaman damgalı üretim verileri temizlenip ±%5 tolerans yaklaşımıyla etiketlenmiş; kalite kontrol, kestirimci bakım ve operasyonel verimlilik için kullanılabilecek bir karar destek altyapısına dönüştürülmüştür.</p></div><div class="panel"><span class="badge">Tek cümlelik anlatım</span><h3 style="font-size:25px;line-height:1.14;letter-spacing:-.025em;font-weight:720">Fabrika verisini paylaşmadan, fabrikalar arası ortak yapay zekâ öğrenmesi.</h3><p class="small">Sanayi odaklı · Gizlilik korumalı · Ölçeklenebilir · Uygulanabilir araştırma prototipi</p></div></div></div></section>
+    <section class="section-pad" id="etik">
+      <div class="container narrow">
+        <p class="eyebrow">Etik ve veri beyanı</p>
+        <h2>Veri gizliliği ve akademik etik</h2>
+        <div class="ethics-card">
+          <h3>Veri etik beyanı</h3>
+          <p>Bu projede kullanılan üretim verileri, ilgili tesisin bilgisi dahilinde alınmış olup hiçbir kişisel veri içermemektedir. Yalnızca makine üretim parametreleri (sıcaklık, basınç, hız, çap, çekme kuvveti) ele alınmıştır. Veriler hiçbir aşamada yurt dışı sunuculara aktarılmamıştır.</p>
+          <h3>Akademik etik</h3>
+          <p>Tez, Bursa Teknik Üniversitesi’nin abonesi olduğu intihal yazılımıyla denetlenmiş ve yönetmeliğin belirlediği eşik içinde kalmıştır. Tüm dış kaynaklar tez içinde APA formatında atıflanmıştır.</p>
+        </div>
+      </div>
+    </section>
   </main>
-  <footer><div class="wrap"><strong>Federe Öğrenme Kullanılarak Nesnelerin İnterneti (IoT) Verileri Analizi</strong><br><span class="small">Süleyman Burak Altınışık · Bursa Teknik Üniversitesi · 2025 · Kişisel tez tanıtım sayfası</span></div></footer>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <strong>Federe Öğrenme Kullanılarak IoT Verileri Analizi</strong>
+        <p>Kaynak: Süleyman Burak Altınışık yüksek lisans tezi, Temmuz 2025; yarışma başvuru içerik yönergesi.</p>
+      </div>
+      <a class="back-top" href="#top">Yukarı dön ↑</a>
+    </div>
+  </footer>
+  <script src="script.js"></script>
 </body>
 </html>
