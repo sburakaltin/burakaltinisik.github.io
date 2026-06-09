@@ -293,3 +293,25 @@ ul { padding-left: 1.2rem; margin: 10px 0 0; }
   color: var(--primary-dark);
   font-weight: 700;
 }
+
+
+/* Video embed hard override */
+.video-embed {
+  position: relative !important;
+  width: min(1080px, 100%) !important;
+  aspect-ratio: 16 / 9 !important;
+  margin-top: 28px !important;
+  border-radius: 22px !important;
+  overflow: hidden !important;
+  background: #000 !important;
+  border: 1px solid var(--line) !important;
+  box-shadow: var(--shadow) !important;
+}
+
+.video-embed iframe {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  border: 0 !important;
+}
